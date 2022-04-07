@@ -87,3 +87,19 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Grape Nuts
+      fonts:
+        - asset: lib/assets/fonts/GrapeNuts-Regular.ttf
+    - family: Baloo 2
+      fonts:
+        - asset: lib/assets/fonts/Baloo2-Regular.ttf
+          weight: 400
+        - asset: lib/assets/fonts/Baloo2-Medium.ttf
+          weight: 500
+        - asset: lib/assets/fonts/Baloo2-SemiBold.ttf
+          weight: 600
+        - asset: lib/assets/fonts/Baloo2-Bold.ttf
+          weight: 700
+        - asset: lib/assets/fonts/Baloo2-ExtraBold.ttf
+          weight: 800

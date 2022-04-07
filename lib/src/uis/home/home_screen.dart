@@ -1,17 +1,9 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -19,76 +11,93 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> _listOfTrainees = [
-    "Hoàng Đặng",
-    "Phát",
-    "Hiệp Thành",
-    "Minh Nhật",
-    "Hồng Sơn",
-    "Tuấn",
-    "Quốc Bảo",
-    "Xuân Nhựt"
-  ];
+  // final List<String> _listOfTrainees = [
+  //   "Hoàng Đặng",
+  //   "Phát",
+  //   "Hiệp Thành",
+  //   "Minh Nhật",
+  //   "Hồng Sơn",
+  //   "Tuấn",
+  //   "Quốc Bảo",
+  //   "Xuân Nhựt"
+  // ];
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:nnnnn',
-            ),
-            // Text(
-            //   '$_listOfTrainees',
-            //   style: Theme.of(context).textTheme.headline6,
-            // ),
-            ListView(
-              shrinkWrap: true,
-              children: <Widget>[
-                for (var _trainee in _listOfTrainees)
-                  Text(
-                    _trainee,
-                    style: Theme.of(context).textTheme.headline4,
+        // appBar: AppBar(
+        //   title: Text(widget.title),
+        // ),
+        backgroundColor: const Color(0xFFEDF0F6),
+        // backgroundColor: Color.fromARGB(125, 79, 202, 169),
+        body: ListView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Flutter Trainess 2022:',
+                    style: TextStyle(
+                        fontFamily: 'Baloo 2',
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.w700),
                   ),
-              ],
+                  Row(
+                    children: [
+                      IconButton(
+                          onPressed: () => print("TV nè"),
+                          icon: const Icon(Icons.live_tv)),
+                      const SizedBox(
+                        width: 16.0,
+                      ),
+                      Container(
+                        width: 55.0,
+                        color: Colors.red,
+                        child: IconButton(
+                            onPressed: () => print("Send nè"),
+                            icon: const Icon(Icons.send)),
+                      )
+                      // https://www.youtube.com/watch?v=WYL66RNZpDI
+                    ],
+                  )
+                ],
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              height: 100.0,
+              color: Colors.green[300],
             )
           ],
-        ),
-      ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _incrementCounter,
-      //   tooltip: 'Increment',
-      //   child: const Icon(Icons.remove),
-      // ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        ));
   }
 }
+
+
+      // Center(
+      //   child: Column(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     children: <Widget>[
+      //       const Text(
+      //         'You have pushed the button this many times:nnnnn',
+      //       ),
+      //       // Text(
+      //       //   '$_listOfTrainees',
+      //       //   style: Theme.of(context).textTheme.headline6,
+      //       // ),
+      //       // ListView(
+      //       //   shrinkWrap: true,
+      //       //   children: <Widget>[
+      //       //     for (var _trainee in _listOfTrainees)
+      //       //       Text(
+      //       //         _trainee,
+      //       //         style: Theme.of(context).textTheme.headline4,
+      //       //       ),
+      //       //   ],
+      //       // )
+      //     ],
+      //   ),
+      // ),
