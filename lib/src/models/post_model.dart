@@ -16,12 +16,12 @@ final List<Post> posts = [
   Post(
       authorName: 'Bao Tran',
       authorImageUrl: 'lib/assets/images/user1.png',
-      timeAgo: '13 secconds',
+      timeAgo: '13 seconds ago',
       imageUrl: 'lib/assets/images/post0.jpg'),
   Post(
       authorName: 'Nhut Pham',
       authorImageUrl: 'lib/assets/images/user1.png',
-      timeAgo: '27 minutes',
+      timeAgo: '27 minutes ago',
       imageUrl: 'lib/assets/images/post1.jpg'),
 ];
 

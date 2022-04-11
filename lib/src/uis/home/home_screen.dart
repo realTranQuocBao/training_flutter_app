@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:training_flutter_app/src/models/post_model.dart';
+import 'package:training_flutter_app/src/uis/home/view_post_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, required this.title}) : super(key: key);
@@ -73,22 +74,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () => print('More'),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.all(10.0),
-              width: double.infinity,
-              height: 400.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25.0),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.black,
-                    offset: Offset(0, 5),
-                    blurRadius: 8.0,
-                  ),
-                ],
-                image: DecorationImage(
-                    image: AssetImage(posts[index].imageUrl),
-                    fit: BoxFit.cover),
+            InkWell(
+              onDoubleTap: () => print("Like post nè"),
+              onTap: () {
+                print('Comment post nè');
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (_) => ViewPostScreen(post: posts[index]),
+                //   ),
+                // );
+              },
+              child: Container(
+                margin: const EdgeInsets.all(10.0),
+                width: double.infinity,
+                height: 400.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25.0),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black,
+                      offset: Offset(0, 5),
+                      blurRadius: 8.0,
+                    ),
+                  ],
+                  image: DecorationImage(
+                      image: AssetImage(posts[index].imageUrl),
+                      fit: BoxFit.cover),
+                ),
               ),
             ),
             Padding(
@@ -117,7 +130,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       Row(
                         children: <Widget>[
                           IconButton(
-                            onPressed: () => print('Comment post nè'),
+                            onPressed: () {
+                              print('Comment post nè');
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //     builder: (_) =>
+                              //         ViewPostScreen(post: posts[index]),
+                              //   ),
+                              // );
+                            },
                             icon: const Icon(Icons.chat),
                             iconSize: 30.0,
                           ),
@@ -235,6 +257,19 @@ class _HomeScreenState extends State<HomeScreen> {
           _buildPost(0),
           _buildPost(1),
           Text(posts[0].authorImageUrl)
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(
+            label: 'data',
+            icon: Icon(
+              Icons.dashboard,
+              size: 30.0,
+              color: Colors.black,
+            ),
+          ),
         ],
       ),
     );
