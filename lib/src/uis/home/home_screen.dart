@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:training_flutter_app/src/models/post_model.dart';
-import 'package:training_flutter_app/src/uis/home/view_post_screen.dart';
+// import 'package:training_flutter_app/src/uis/home/view_post_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, required this.title}) : super(key: key);
@@ -78,12 +78,6 @@ class _HomeScreenState extends State<HomeScreen> {
               onDoubleTap: () => print("Like post nè"),
               onTap: () {
                 print('Comment post nè');
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (_) => ViewPostScreen(post: posts[index]),
-                //   ),
-                // );
               },
               child: Container(
                 margin: const EdgeInsets.all(10.0),
@@ -132,13 +126,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           IconButton(
                             onPressed: () {
                               print('Comment post nè');
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (_) =>
-                              //         ViewPostScreen(post: posts[index]),
-                              //   ),
-                              // );
                             },
                             icon: const Icon(Icons.chat),
                             iconSize: 30.0,
@@ -254,24 +241,22 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
-          _buildPost(0),
-          _buildPost(1),
-          Text(posts[0].authorImageUrl)
+          for (var i = 0; i < posts.length; i++) _buildPost(i),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(
-            label: 'data',
-            icon: Icon(
-              Icons.dashboard,
-              size: 30.0,
-              color: Colors.black,
-            ),
-          ),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   type: BottomNavigationBarType.fixed,
+      //   items: const [
+      //     BottomNavigationBarItem(
+      //       label: 'data',
+      //       icon: Icon(
+      //         Icons.dashboard,
+      //         size: 30.0,
+      //         color: Colors.black,
+      //       ),
+      //     ),
+      //   ],
+      // ),
     );
   }
 }
